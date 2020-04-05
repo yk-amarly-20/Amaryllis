@@ -51,7 +51,7 @@ def N(i, population, x, lifespan=120):
     """
 
     assert (population.shape[0] == lifespan - x +
-            1) or (len(population.shape) == 1), "生存人口の入力数が異なります"
+            1) and (len(population.shape) == 1), "生存人口の入力数が異なります"
 
     Dxs = [D(i, p, y) for y, p in zip(range(x, lifespan + 1), population)]
     Dxs = np.array(Dxs)
@@ -110,7 +110,7 @@ def M(i, dead_population, x, lifespan=120):
     """
 
     assert (dead_population.shape[0] == lifespan - x +
-            1) or (len(dead_population.shape) == 1), "死亡人口の入力が異なります"
+            1) and (len(dead_population.shape) == 1), "死亡人口の入力が異なります"
 
     Cxs = [C(i, p, y) for y, p in zip(range(x, lifespan + 1), dead_population)]
     Cxs = np.array(Cxs)
@@ -144,7 +144,7 @@ def S(i, population, x, lifespan=120):
     """
 
     assert (population.shape[0] == lifespan - x +
-            1) or (len(population.shape) == 1), "生存人口の入力数が異なります"
+            1) and (len(population.shape) == 1), "生存人口の入力数が異なります"
 
     S = 0
 
@@ -177,7 +177,7 @@ def R(i, dead_population, x, lifespan=120):
     """
 
     assert (dead_population.shape[0] == lifespan - x +
-            1) or (len(dead_population.shape) == 1), "死亡人口の入力が異なります"
+            1) and (len(dead_population.shape) == 1), "死亡人口の入力が異なります"
 
     R = 0
     for j in range(0, lifespan - x + 1):
@@ -233,7 +233,7 @@ def M_continuous(i, dead_population, x, lifespan=120):
     """
 
     assert (dead_population.shape[0] == lifespan - x +
-            1) or (len(dead_population.shape) == 1), "死亡人口の入力が異なります"
+            1) and (len(dead_population.shape) == 1), "死亡人口の入力が異なります"
 
     Cxs = [C_continuous(i, p, y) for y, p in zip(
         range(x, lifespan + 1), dead_population)]
