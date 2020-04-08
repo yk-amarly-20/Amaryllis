@@ -1,6 +1,8 @@
 # 計算基数を実装
 import numpy as np
-from util.interest import *
+import sys
+sys.path.append('./../')
+from Amaryllis.util.interest import *
 
 
 def D(i, population, x):
@@ -50,8 +52,7 @@ def N(i, population, x, lifespan=120):
         Nxの計算基数  
     """
 
-    assert (population.shape[0] == lifespan - x +
-            1) and (len(population.shape) == 1), "生存人口の入力数が異なります"
+    assert (population.shape[0] == lifespan - x) and (len(population.shape) == 1), "生存人口の入力数が異なります"
 
     Dxs = [D(i, p, y) for y, p in zip(range(x, lifespan + 1), population)]
     Dxs = np.array(Dxs)
@@ -97,7 +98,7 @@ def M(i, dead_population, x, lifespan=120):
         年利率
     dead_population: ndarray<int>
         x~lifespan年度死亡人口
-        size: (lifespan - x + 1, )
+        size: (lifespan - x, )
     x: int
         最初の年度
     lifespan: int, default 120
@@ -109,8 +110,7 @@ def M(i, dead_population, x, lifespan=120):
         Mxの計算基数
     """
 
-    assert (dead_population.shape[0] == lifespan - x +
-            1) and (len(dead_population.shape) == 1), "死亡人口の入力が異なります"
+    assert (dead_population.shape[0] == lifespan - x) and (len(dead_population.shape) == 1), "死亡人口の入力が異なります"
 
     Cxs = [C(i, p, y) for y, p in zip(range(x, lifespan + 1), dead_population)]
     Cxs = np.array(Cxs)
@@ -131,7 +131,7 @@ def S(i, population, x, lifespan=120):
         年利率
     population: ndarray<int>
         x~lifespan年度生存人口
-        size: (lifespan - X + 1, )
+        size: (lifespan - X, )
     x: int
         最初の年
     lifespan: int, default 120
@@ -143,13 +143,12 @@ def S(i, population, x, lifespan=120):
         Sxの計算基数
     """
 
-    assert (population.shape[0] == lifespan - x +
-            1) and (len(population.shape) == 1), "生存人口の入力数が異なります"
+    assert (population.shape[0] == lifespan - x) and (len(population.shape) == 1), "生存人口の入力数が異なります"
 
     S = 0
 
-    for j in range(0, lifespan - x + 1):
-        S += (j + 1) * D(i, population[j], x + j)
+    for j in range(0, lifespan - x):
+        S += (j + 1) * D(i, population[j], j)
 
     return S
 
@@ -176,12 +175,11 @@ def R(i, dead_population, x, lifespan=120):
         Rの計算基数
     """
 
-    assert (dead_population.shape[0] == lifespan - x +
-            1) and (len(dead_population.shape) == 1), "死亡人口の入力が異なります"
+    assert (dead_population.shape[0] == lifespan - x) and (len(dead_population.shape) == 1), "死亡人口の入力が異なります"
 
     R = 0
-    for j in range(0, lifespan - x + 1):
-        R += (j + 1) * C(i, dead_population[j], x + j)
+    for j in range(0, lifespan - x):
+        R += (j + 1) * C(i, dead_population[j], j)
 
     return R
 
@@ -232,8 +230,7 @@ def M_continuous(i, dead_population, x, lifespan=120):
         M_の計算基数
     """
 
-    assert (dead_population.shape[0] == lifespan - x +
-            1) and (len(dead_population.shape) == 1), "死亡人口の入力が異なります"
+    assert (dead_population.shape[0] == lifespan - x) and (len(dead_population.shape) == 1), "死亡人口の入力が異なります"
 
     Cxs = [C_continuous(i, p, y) for y, p in zip(
         range(x, lifespan + 1), dead_population)]
