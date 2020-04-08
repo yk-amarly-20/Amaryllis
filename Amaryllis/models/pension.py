@@ -2,9 +2,9 @@
 
 import numpy as np
 import sys
-sys.path.append('./../')
-from util.interest import *
-from util.calc_base import *
+sys.path.append('./../../')
+from Amaryllis.util.interest import *
+from Amaryllis.util.calc_base import *
 
 
 def life_annuity(i, population, x, n, due=True, f=0, lifespan=112):
@@ -228,9 +228,9 @@ def decreasing_life_annuity(i, population, x, n , due=True, f=0, lifespan=112):
     Dx = D(i, population[x], x)
     if due:
         assert x + f + n + 1 <= lifespan, '契約終了前に最終年齢を迎えてしまいます'
-        Sx_1 = S(i, population[x + f + 1 :], x + 1, lifespan)
-        Sx_n1 = S(i, population[x + f + n + 1 :], x + n + 1, lifespan)
-        Nx = N(i, population[x + f:], x, lifespan)
+        Sx_1 = S(i, population[x + f + 1 :], x + f + 1, lifespan)
+        Sx_n1 = S(i, population[x + f + n + 1 :], x + f + n + 1, lifespan)
+        Nx = N(i, population[x + f:], x + f, lifespan)
         Ia = (n * Nx - Sx_1 + Sx_n1) / Dx
 
         return Ia
