@@ -2,14 +2,14 @@
 
 import sys
 sys.path.append('./../../')
-from util.calc_base import *
+from Amaryllis.util.calc_base import *
 import numpy as np
 
 
 POPULATION = np.array([1188, 774, 487, 295, 172, 96, 51, 26, 13, 6, 2, 1])
 DEAD_POPULATION = np.array([414, 287, 192, 123, 76, 45, 25, 13, 7, 3, 1, 1])
 I = 0.03
-LIFESPAN = 110
+LIFESPAN = 112
 X = 100
 
 
