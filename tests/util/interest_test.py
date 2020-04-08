@@ -3,7 +3,7 @@
 import numpy as np
 import sys
 sys.path.append('./../../')
-from util.interest import *
+from Amaryllis.util.interest import *
 
 
 I = 0.03
