@@ -2,7 +2,7 @@
 
 ### 保険料現価を算出するアクチュアリー業務用モジュールです。
 
-## ①保険金現価
+## ①一時払い保険料現価
 Amaryllis.models.singleをimport  
 パラメータは、それぞれ  
 
@@ -39,7 +39,7 @@ single_decreasing_term_insurance(i, population, x, n, f, lifespan)
 ・ 終身保険  
 single_lifelong_insurance(i, population, x, f, lifespan)  
 
-・ 逓増終身保険
+・ 逓増終身保険  
 single_increasing_lifelong_insurance(i, population, x, n, f, lifespan)  
 
 ・ 逓減終身保険  
@@ -50,6 +50,32 @@ single_continuous_term_insurance(i, population, x, n, f, lifespan)
 
 ・ 即時払い終身保険  
 single_continuous_lifelong_insurance(i, population, x, f, lifespan)  
+
+
+
+## ②年金現価
+Amaryllis.models.pensionをimport  
+パラメータは保険料現価のものに加えて、  
+
+due: 期始払いか期末払いか。Trueなら期始払い、Falseなら期末払い。  
+を入れる。デフォルトはTrue。  
+
+
+・ 生命年金現価  
+life_annuity(i, population, x, n, due, f, lifespan)  
+
+・ 終身生命年金  
+lifelong_annuity(i, population, x, due, f, lifespan)  
+
+・ 逓増生命年金  
+increasing_life_annuity(i, population, x, n, due, f, lifespan)  
+
+・ 逓増終身生命年金  
+increasing_lifelong_annuity(i, population, x, n, due, f, lifespan)  
+
+・ 逓減生命年金  
+decreasing_life_annuity(i, population, x, n , due, f, lifespan)  
+
 
 
 
