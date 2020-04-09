@@ -4,6 +4,9 @@ from amaryllis.util.interest import *
 ```
 
 ### present_value_rate(i=0.03)
+calculate present value rate.
+
+#### Parameters
 ・ **i** (int (default 0.03)) -- annual interest rate
 
 #### sample
@@ -13,3 +16,9 @@ from amaryllis.util.interest import *
 >>> print("v = {}".format(v))
 v = 0.970873786407767
 ```
+
+
+### discount_rate(i=0.03)
+・ **i** (int (default 0.03)) -- annual interest rate
+
+#### sample
