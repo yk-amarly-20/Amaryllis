@@ -5,11 +5,11 @@ from amaryllis.util.calc_base import *
 
 ## ```D(i, population, x)```
 #### Parameters
-・ **i** (float) -- annual interest rate
-・ **population** (population) -- living population in x
+・ **i** (float) -- annual interest rate  
+・ **population** (int) -- living population in x  
 ・ **x** (int) -- age
 #### Returns
-・ **D** (float) -- commutation column of D
+・ **D** (float) -- commutation column of D  
 #### sample
 ```python
 >>> from amaryllis.util.calc_base import *
