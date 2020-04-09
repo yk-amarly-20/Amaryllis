@@ -7,11 +7,7 @@ from amaryllis.util.interest import *
 calculate present value rate.
 
 #### Parameters
-・ **i** (int (default 0.03)) -- annual interest rate
-
-```math
-v = \frac{1}{1 + i}
-```
+・ **i** (float (default 0.03)) -- annual interest rate
 
 #### sample
 ```python
@@ -23,6 +19,9 @@ v = 0.970873786407767
 
 
 ### discount_rate(i=0.03)
-・ **i** (int (default 0.03)) -- annual interest rate
+・ **i** (float (default 0.03)) -- annual interest rate
 
-#### sample
+
+### name_interest_rate(i=0.03, k=1)
+・ **i** (float (default 0.03)) -- annual interest rate  
+・ **k** (int (default 1)) -- counts the insured pays in a year
