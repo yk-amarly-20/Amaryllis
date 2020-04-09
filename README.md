@@ -11,6 +11,8 @@ pip install amaryllis
 ```
 
 ## How to use  
+
+
 ### calculating interest and others
 ```
 from amaryllis.util.interest import *
