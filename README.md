@@ -1,6 +1,6 @@
 # Amaryllis
 
-## This module is that calclate insurance value.
+## This module is that calculate insurance value.
 
 
 
