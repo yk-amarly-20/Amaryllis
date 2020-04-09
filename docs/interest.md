@@ -1,9 +1,9 @@
-## calculating interest and others
+# calculating interest and others
 ```
 from amaryllis.util.interest import *
 ```
 
-### ```present_value_rate(i=0.03)```
+## ```present_value_rate(i=0.03)```
 calculate present value rate.
 
 #### Parameters
