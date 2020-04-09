@@ -9,6 +9,10 @@ calculate present value rate.
 #### Parameters
 ・ **i** (int (default 0.03)) -- annual interest rate
 
+```math
+v = \frac{1}{1 + i}
+```
+
 #### sample
 ```python
 >>> from amaryllis.util.interest import *
