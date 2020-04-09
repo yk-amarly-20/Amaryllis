@@ -30,4 +30,16 @@ Dx = 41.19867595159069
 ・ **lifespan** (int (default 112)) -- final age  
 
 #### Returns
-・ N (float) -- commutation column of N  
+・ **N** (float) -- commutation column of N  
+
+## ```C(i, dead_population, x)```
+#### Parameters
+・ **i** (float) -- annual interest rate   
+・ **dead_population** (int) -- numbers which died between x and (x+1)    
+・ **x** (int) -- age  
+
+#### Returns
+・ **C** (float) -- commutation column of C  
+
+
+
