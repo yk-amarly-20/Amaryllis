@@ -6,9 +6,12 @@
 
 You can install Amaryllis by using pip.  
 
-```python:install
+```
 pip install amaryllis
 ```
+
+## How to use  
+・ [interst]
 
 
 
