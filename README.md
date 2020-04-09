@@ -19,7 +19,7 @@ from amaryllis.util.interest import *
 #### present_value_rate(i=0.03)
 ・ **i** (int (default 0.03)) -- annual interest rate
 
-##### サンプル
+##### sample
 ```python
 >>> from amaryllis.util.interest import *
 >>> v = present_value_rate()
