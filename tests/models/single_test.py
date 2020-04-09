@@ -3,15 +3,8 @@
 import numpy as np
 import sys
 sys.path.append('./../../')
-from Amaryllis.models.single import *
-
-# テスト用の仮データ
-POPULATION = np.array([100, 90, 80, 70, 60, 50, 40, 30, 20, 10])
-LIFESPAN = 10
-X = 0
-I = 0.03
-N = 2
-F = 1
+from amaryllis.models.single import *
+from amaryllis.config import *
 
 
 def test_single_term_insurance():

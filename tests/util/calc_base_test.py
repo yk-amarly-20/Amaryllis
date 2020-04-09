@@ -2,7 +2,7 @@
 
 import sys
 sys.path.append('./../../')
-from Amaryllis.util.calc_base import *
+from amaryllis.util.calc_base import *
 import numpy as np
 
 
