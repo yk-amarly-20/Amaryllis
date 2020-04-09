@@ -8,6 +8,8 @@ from amaryllis.util.calc_base import *
 ・ **i** (float) -- annual interest rate
 ・ **population** (population) -- living population in x
 ・ **x** (int) -- age
+#### Returns
+・ **D** (float) -- commutation column of D
 #### sample
 ```python
 >>> from amaryllis.util.calc_base import *
@@ -18,3 +20,9 @@ from amaryllis.util.calc_base import *
 >>> print("Dx = {}".format(Dx))
 Dx = 41.19867595159069
 ```
+
+
+## ```N(i, population, x, lifespan=112)```
+#### Parameters
+・ **i** (float) -- annual interest rate
+・ **population** (ndarray<int>)
