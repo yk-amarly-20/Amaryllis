@@ -11,7 +11,14 @@ pip install amaryllis
 ```
 
 ## How to use  
-・ [interst]
+### calculating interest and others
+```
+from amaryllis.util.interest import *
+```
+
+#### present_value_rate(i=0.03)
+
+
 
 
 
