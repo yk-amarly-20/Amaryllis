@@ -2,7 +2,7 @@
 import numpy as np
 import sys
 sys.path.append('./../')
-from Amaryllis.util.interest import *
+from amaryllis.util.interest import *
 
 
 def D(i, population, x):

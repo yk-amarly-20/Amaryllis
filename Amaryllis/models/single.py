@@ -3,27 +3,28 @@
 import numpy as np
 import sys
 sys.path.append('./../')
-from Amaryllis.util.calc_base import *
-from Amaryllis.util.interest import *
-from Amaryllis.survival_rate.population import *
+from amaryllis.util.calc_base import *
+from amaryllis.util.interest import *
+from amaryllis.survival_rate.population import *
+from amaryllis.config import *
 
 
-def single_term_insurance(i, population, x, n, f=0, lifespan=112):
+def single_term_insurance(i=I, population=POPULATION, x=X, n=N, f=F, lifespan=LIFESPAN):
     """
     定期保険の一時払保険料現価を算出
 
     Parameters
     ---------
-    i: float
+    i: float, default 0.03
         年利率
-    population: ndarray<int>
+    population: ndarray<int>, default POPULATION
         生存人口
         size: (lifespan, )
-    x: int
+    x: int, default 30
         契約年齢
-    n: int
+    n: int, default 20
         契約年数
-    f: int, default 0
+    f: int, default 10
         据置期間
     lifespan: int, default 112
         最終年齢
@@ -47,21 +48,21 @@ def single_term_insurance(i, population, x, n, f=0, lifespan=112):
     return A
 
 
-def single_life_insurance(i, population, x, n, f=0, lifespan=112):
+def single_life_insurance(i=I, population=POPULATION, x=X, n=N, f=F, lifespan=LIFESPAN):
     """
     生存保険の一時払い保険料現価を算出
 
     Parameters
     ----------
-    i: float
+    i: float, default 0.03
         年利率
-    population: ndarray<int>
+    population: ndarray<int>, default POPULATION
         生存人口　
-    x: int
+    x: int, default 30
         契約年齢
-    n: int
+    n: int, default 20
         契約年数
-    f: int, default 112
+    f: int, default 10
         据置期間
     lifespan: int, default 112
         最終年齢
@@ -82,22 +83,22 @@ def single_life_insurance(i, population, x, n, f=0, lifespan=112):
     return A
 
 
-def single_endowment_insurance(i, population, x, n, f=0, lifespan=112):
+def single_endowment_insurance(i=I, population=POPULATION, x=X, n=N, f=F, lifespan=LIFESPAN):
     """
     養老保険の一時払保険現価を算出
 
     Parameters
     ----------
-    i: float
+    i: float, default 0.03
         年利率
-    population: ndarray<int>
+    population: ndarray<int>, default POPULATION
         生存人口
         size: (lifespan, )
-    x: int
+    x: int, default 30
         契約年齢
-    n: int
+    n: int, default 20
         契約年数
-    f: int, default 112
+    f: int, default 10
         据置期間
     lifespan: int, default 112
         最終年齢
@@ -113,22 +114,22 @@ def single_endowment_insurance(i, population, x, n, f=0, lifespan=112):
     return A
 
 
-def single_increasing_term_insurance(i, population, x, n, f=0, lifespan=112):
+def single_increasing_term_insurance(i=I, population=POPULATION, x=X, n=N, f=F, lifespan=LIFESPAN):
     """
     累加定期保険の一時払い保険料現価を算出
 
     Parameters
     ----------
-    i: float
+    i: float, default I
         年利率
-    population: ndarray<int>
+    population: ndarray<int>, default POPULATION
         生存人口
-        size: (llifespan, )
-    x: int
+        size: (lifespan, )
+    x: int, default 30
         契約年齢
-    n: int
+    n: int, default 20
         契約年数
-    f: int, default 112
+    f: int, default 10
         据置期間
     lifespan: int, default 112
         最終年齢
@@ -144,31 +145,31 @@ def single_increasing_term_insurance(i, population, x, n, f=0, lifespan=112):
 
     dead_population = living_to_dead(population, lifespan)
     Dx = D(i, population[x], x)
-    Sx = S(i, population[x + f :], x + f, lifespan)
-    Sx_n = S(i, population[x + f + n :], x + f + n, lifespan)
-    Nx_n = N(i, population[x + f + n :], x + f + n, lifespan)
+    Rx = R(i, dead_population[x + f :], x + f, lifespan)
+    Rx_n = R(i, dead_population[x + f + n :], x + f + n, lifespan)
+    Mx_n = M(i, dead_population[x + f + n :], x + f + n, lifespan)
 
-    IA = (Sx - Sx_n - n * Nx_n) / Dx
+    IA = (Rx - Rx_n - n * Mx_n) / Dx
 
     return IA
 
 
-def single_decreasing_term_insurance(i, population, x, n, f=0, lifespan=112):
+def single_decreasing_term_insurance(i=I, population=POPULATION, x=X, n=N, f=F, lifespan=LIFESPAN):
     """
     逓減定期保険一時払いの保険料現価を算出
 
     Parameters
     ----------
-    i: float
+    i: float, default 0.03
         年利率
-    population: ndarray<int>
+    population: ndarray<int>, default POPULATION
         生存人口　
         size: (lifespan, )
-    x: int
+    x: int, default 30
         契約年齢
-    n: int
+    n: int, default 20
         契約年数
-    f: int, default 0
+    f: int, default 10
         据置期間
     lifespan: int, default 112
         最終年齢
@@ -193,20 +194,20 @@ def single_decreasing_term_insurance(i, population, x, n, f=0, lifespan=112):
     return DA
 
 
-def single_lifelong_insurance(i, population, x, f=0, lifespan=112):
+def single_lifelong_insurance(i=I, population=POPULATION, x=X, f=F, lifespan=LIFESPAN):
     """
     終身保険の一時払い保険料現価を算出
 
     Parameters
     ----------
-    i: float
+    i: float, default 0.03
         年利率
-    population: ndarray<int>
+    population: ndarray<int>, default POPULATION
         生存人口
         size: (lifespan, )
-    x: int
+    x: int, default 30
         契約年齢
-    f: int, default 0
+    f: int, default 10
         据置期間
     lifespan: int, default 112
         最終年齢
@@ -223,29 +224,29 @@ def single_lifelong_insurance(i, population, x, f=0, lifespan=112):
     dead_population = living_to_dead(population, lifespan)
 
     Dx = D(i, population[x], x)
-    Mx = M(i, population[x + f :], x + f, lifespan)
+    Mx = M(i, dead_population[x + f :], x + f, lifespan)
 
     A = Mx / Dx
 
     return A
 
 
-def single_increasing_lifelong_insurance(i, population, x, n, f=0, lifespan=112):
+def single_increasing_lifelong_insurance(i=I, population=POPULATION, x=X, n=N, f=F, lifespan=LIFESPAN):
     """
     累加終身保険一時払い保険料現価を算出
 
     Parameters
     ----------
-    i: float
+    i: float, default 0.03
         年利率
-    population: ndarray<int>
+    population: ndarray<int>, default POPULATION
         生存人口　
         size: (lifespan, )
-    x: int
+    x: int, default 30
         契約年齢
-    n: int
+    n: int, default 20
         保険料が増大する回数の上限
-    f: int, default 0
+    f: int, default 10
         据置期間
     lifespan: int, default 112
         最終年齢
@@ -269,22 +270,22 @@ def single_increasing_lifelong_insurance(i, population, x, n, f=0, lifespan=112)
     return IA
 
 
-def single_decreasing_lifelong_insurance(i, population, x, n, f=0, lifespan=112):
+def single_decreasing_lifelong_insurance(i=I, population=POPULATION, x=X, n=N, f=F, lifespan=LIFESPAN):
     """
     逓減終身保険の一時払い保険料現価を算出
 
     Parameters
     ----------
-    i: float
+    i: float, default 0.03
         年利率
-    population: ndarray<int>
+    population: ndarray<int>, default POPULATION 
         生存人口
         size: (lifespan, )
-    x: int
+    x: int, default 30
         契約年齢
-    n: int
+    n: int, default 20
         保険料減少回数の上限
-    f: int, default 0
+    f: int, default 10
         据置期間
     lifespan: int, default 112
         最終年齢
@@ -309,22 +310,22 @@ def single_decreasing_lifelong_insurance(i, population, x, n, f=0, lifespan=112)
     return DA
 
 
-def single_continuous_term_insurance(i, population, x, n, f=0, lifespan=112):
+def single_continuous_term_insurance(i=I, population=POPULATION, x=X, n=N, f=F, lifespan=LIFESPAN):
     """
     即時払い定期保険の一時払い保険料現価を算出
 
     Parameters
     ----------
-    i: float
+    i: float, default 0.03
         年利率
-    population: ndarray<int>
+    population: ndarray<int>, default POPULATION
         生存人口
         size: (lifespan, )
-    x: int
+    x: int, default 30
         契約年齢
-    n: int
+    n: int, default 20
         契約年数
-    f: int, default 0
+    f: int, default 10
         据置年数
     lifespan: int, default 112
         最終年齢
@@ -349,20 +350,20 @@ def single_continuous_term_insurance(i, population, x, n, f=0, lifespan=112):
     return A
 
 
-def single_continuous_lifelong_insurance(i, population, x, f=0, lifespan=112):
+def single_continuous_lifelong_insurance(i=I, population=POPULATION, x=X, f=F, lifespan=LIFESPAN):
     """
     即時払い終身保険の一時払い保険料現価を算出
 
     Parameters
     ----------
-    i: float
+    i: float, default 0.03
         年利率
-    population: ndarray<int>
+    population: ndarray<int>, default POPULATION
         生存人口
         size: (lifespan, )
-    x: int
+    x: int, default 30
         契約年齢
-    f: int, default 0
+    f: int, default 10
         据置期間
     lifespan: int, default 112
         最終年齢

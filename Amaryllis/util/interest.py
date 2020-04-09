@@ -2,13 +2,13 @@
 import numpy as np
 
 
-def present_value_rate(i):
+def present_value_rate(i=0.03):
     """
     現価率を計算
 
     Parameters
     ----------
-    i: float
+    i: float, default 0.03
         年利率
 
     Returns
@@ -22,13 +22,13 @@ def present_value_rate(i):
     return v
 
 
-def discount_rate(i):
+def discount_rate(i=0.03):
     """
     割引率を計算
 
     Parameters
     ----------
-    i: float
+    i: float, default 0.03
         年利率
 
     Returns
@@ -42,15 +42,15 @@ def discount_rate(i):
     return d
 
 
-def name_interest_rate(i, k):
+def name_interest_rate(i=0.03, k=1):
     """
     名称利率を計算
 
     Parameters
     ----------
-    i: float
+    i: float, default 0.03
         年利率
-    k: int
+    k: int, default 1
         一年に支払う回数
 
     Returns
@@ -64,15 +64,15 @@ def name_interest_rate(i, k):
     return i_k
 
 
-def name_discount_rate(i, k):
+def name_discount_rate(i=0.03, k=1):
     """
     名称割引率を計算
 
     Parameters
     ----------
-    i:　float
+    i:　float, default 0.03
         年利率
-    k: int
+    k: int, default 1
         一年に支払う回数
 
     Returns
@@ -88,13 +88,13 @@ def name_discount_rate(i, k):
     return d_k
 
 
-def force_of_interest(i):
+def force_of_interest(i=0.03):
     """
     利力を計算
 
     Parameters
     ----------
-    i: float
+    i: float, default 0.03
         年利率
 
     Returns
