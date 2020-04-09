@@ -11,7 +11,7 @@ pip install amaryllis
 ```
 
 ## How to use  
-[interest](./docs/interest.md)
+[interest]("./docs/interest.md")
 
 
 
