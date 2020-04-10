@@ -12,7 +12,7 @@ setup(
     name='amaryllis', # パッケージ名(プロジェクト名)
     packages=['amaryllis'], # パッケージ内(プロジェクト内)のパッケージ名をリスト形式で指定
 
-    version='1.0.0', # バージョン
+    version='1.0.2', # バージョン
 
     license='MIT', # ライセンス
 
