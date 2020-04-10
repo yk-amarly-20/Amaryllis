@@ -3,7 +3,7 @@
 import numpy as np
 import sys
 sys.path.append('./../../')
-from Amaryllis.survival_rate.population import *
+from amaryllis.survival_rate.population import *
 
 # テスト用の仮データ
 POPULATION = np.array([100, 90, 80, 70, 60, 50, 40, 30, 20, 10])
