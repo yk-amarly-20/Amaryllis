@@ -44,7 +44,7 @@ calculate value of lifelong insurance annuity.
 ・ lifespan (int default 112) -- final age  
 
 #### Returns
-・ a (float) -- life insurance annuity  
+・ a (float) -- lifelong insurance annuity  
 
 
 ## ```increasing_life_annuity(i=0.03, population=POPULATION, x=30, n=20, due=True, f=10, lifespan=112)```
@@ -76,7 +76,7 @@ calculate value of increasing lifelong annuity.
 ・ lifespan (int default 112) -- final age  
 
 #### Returns
-・ a (float) -- life insurance annuity  
+・ a (float) -- increasing lifelong annuity   
 
 
 ## ```decreasing_life_annuity(i=0.03, population=POPULATION, x=30, n=20, due=True, f=10, lifespan=112)```
@@ -91,6 +91,4 @@ calculate value of increasing lifelong annuity.
 ・ lifespan (int default 112) -- final age  
 
 #### Returns
-・ a (float) -- life insurance annuity  
-
-
+・ a (float) -- decreasing_life_annuity  
