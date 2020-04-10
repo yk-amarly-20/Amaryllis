@@ -43,7 +43,7 @@ Dx = 41.19867595159069
 
 
 
-## M(i, dead_population, x, lifespan=112)
+## ```M(i, dead_population, x, lifespan=112)```
 #### Parameters
 ・ **i** (float) -- annual interest rate    
 ・ **dead_population** (ndarray(int)) -- numbers which died between x and lifespan every year  
@@ -53,7 +53,7 @@ Dx = 41.19867595159069
 #### Returns
 ・ M (float) -- commutation column of M  
 
-## S(i, population, x, lifespan=112)  
+## ```S(i, population, x, lifespan=112)``` 
 #### Parameters
 ・ **i** (float) -- annual interest rate    
 ・ **population** (ndarray(int)) -- population between x and lifespan every year  
@@ -64,7 +64,7 @@ Dx = 41.19867595159069
 ・ **S** (float) -- commutation column of S    
 
 
-## R(i, dead_population, x, lifespan=112) 
+## ```R(i, dead_population, x, lifespan=112)```
 #### Parameters
 ・ **i** (float) -- annual interest rate    
 ・ **dead_population** (ndarray(int)) -- numbers which died between x and lifespan every year  
@@ -75,7 +75,7 @@ Dx = 41.19867595159069
 ・ R (float) -- commutation column of R  
 
 
-## C_continuous(i, dead_population, x)
+## ```C_continuous(i, dead_population, x)```
 #### Parameters
 ・ **i** (float) -- annual interest rate   
 ・ **dead_population** (int) -- numbers which died between x and (x+1)    
@@ -85,7 +85,7 @@ Dx = 41.19867595159069
 ・ **C** (float) -- commutation column of continuous C  
 
 
-## M_continuous(i, dead_population, x, lifespan=112)
+## ```M_continuous(i, dead_population, x, lifespan=112)```
 #### Parameters
 ・ **i** (float) -- annual interest rate    
 ・ **dead_population** (ndarray(int)) -- numbers which died between x and lifespan every year  
