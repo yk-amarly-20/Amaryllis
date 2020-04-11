@@ -22,7 +22,7 @@ Dx = 41.19867595159069
 ```
 
 
-## ```N(i, population, x, lifespan=112)```
+## ```Nc(i, population, x, lifespan=112)```
 #### Parameters
 ・ **i** (float) -- annual interest rate    
 ・ **population** (ndarray(int)) -- population between x and lifespan every year  
