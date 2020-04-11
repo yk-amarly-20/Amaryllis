@@ -35,7 +35,7 @@ def single_term_insurance(i=I, population=POPULATION, x=X, n=N, f=F, lifespan=LI
         保険料現価
     """
 
-    assert (population.shape[0] == lifespan) and (len(population.shape) == 1), '生存人口の入力が異なります'
+    assert (population.shape[0] == lifespan + 1) and (len(population.shape) == 1), '生存人口の入力が異なります'
     assert x + f + n <= lifespan, '契約終了前に最終年齢を迎えてしまいます'
     dead_population = living_to_dead(population, lifespan)
     Dx = D(i, population[x], x)
@@ -73,7 +73,7 @@ def single_life_insurance(i=I, population=POPULATION, x=X, n=N, f=F, lifespan=LI
         保険料現価
     """
 
-    assert (population.shape[0] == lifespan) and (len(population.shape) == 1), '生存人口の入力が異なります'
+    assert (population.shape[0] == lifespan + 1) and (len(population.shape) == 1), '生存人口の入力が異なります'
     assert x + f + n <= lifespan, '契約終了前に最終年齢を迎えてしまいます'
     Dx = D(i, population[x], x)
     Dx_n = D(i, population[x + f + n], x + f + n)
@@ -140,7 +140,7 @@ def single_increasing_term_insurance(i=I, population=POPULATION, x=X, n=N, f=F, 
         保険料現価
     """
 
-    assert (len(population.shape) == 1) and (population.shape[0] == lifespan), '生存人口の入力が異なります'
+    assert (len(population.shape) == 1) and (population.shape[0] == lifespan + 1), '生存人口の入力が異なります'
     assert x + f + n <= lifespan, '契約終了前に最終年齢を迎えてしまいます'
 
     dead_population = living_to_dead(population, lifespan)
@@ -180,7 +180,7 @@ def single_decreasing_term_insurance(i=I, population=POPULATION, x=X, n=N, f=F, 
         保険料現価
     """
     
-    assert (len(population.shape) == 1) and (population.shape[0] == lifespan), '生存人口の入力が異なります'
+    assert (len(population.shape) == 1) and (population.shape[0] == lifespan + 1), '生存人口の入力が異なります'
     assert x + f + n + 1 <= lifespan, '契約終了前に最終年齢を迎えてしまいます'
 
     dead_population = living_to_dead(population, lifespan)
@@ -218,7 +218,7 @@ def single_lifelong_insurance(i=I, population=POPULATION, x=X, f=F, lifespan=LIF
         保険料現価
     """
 
-    assert (len(population.shape) == 1) and (population.shape[0] == lifespan), '生存人口の入力が異なります'
+    assert (len(population.shape) == 1) and (population.shape[0] == lifespan + 1), '生存人口の入力が異なります'
     assert x + f <= lifespan, '契約終了前に最終年齢を迎えてしまいます'
 
     dead_population = living_to_dead(population, lifespan)
@@ -257,7 +257,7 @@ def single_increasing_lifelong_insurance(i=I, population=POPULATION, x=X, n=N, f
         保険料現価
     """
 
-    assert (len(population.shape) == 1) and (population.shape[0] == lifespan), '生存人口の入力が異なります'
+    assert (len(population.shape) == 1) and (population.shape[0] == lifespan + 1), '生存人口の入力が異なります'
     assert x + f + n <= lifespan, '契約終了前に最終年齢を迎えてしまいます'
     
     dead_population = living_to_dead(population, lifespan)
@@ -296,7 +296,7 @@ def single_decreasing_lifelong_insurance(i=I, population=POPULATION, x=X, n=N, f
         保険料現価
     """
 
-    assert (len(population.shape) == 1) and (population.shape[0] == lifespan), '生存人口の入力が異なります'
+    assert (len(population.shape) == 1) and (population.shape[0] == lifespan + 1), '生存人口の入力が異なります'
     assert x + f + n <= lifespan, '契約終了前に最終年齢を迎えてしまいます'
 
     dead_population = living_to_dead(population, lifespan)
@@ -336,7 +336,7 @@ def single_continuous_term_insurance(i=I, population=POPULATION, x=X, n=N, f=F, 
         保険料現価
     """
 
-    assert (len(population.shape) == 1) and (population.shape[0] == lifespan), '生存人口の入力が異なります'
+    assert (len(population.shape) == 1) and (population.shape[0] == lifespan + 1), '生存人口の入力が異なります'
     assert x + f + n <= lifespan, '契約終了前に最終年齢を迎えてしまいます'
 
     dead_population = living_to_dead(population, lifespan)
@@ -374,7 +374,7 @@ def single_continuous_lifelong_insurance(i=I, population=POPULATION, x=X, f=F, l
         保険料現価
     """
 
-    assert (len(population.shape) == 1) and (population.shape[0] == lifespan), '生存人口の入力が異なります'
+    assert (len(population.shape) == 1) and (population.shape[0] == lifespan + 1), '生存人口の入力が異なります'
     assert x + f <= lifespan, '契約終了前に最終年齢を迎えてしまいます'
 
     dead_population = living_to_dead(population, lifespan)

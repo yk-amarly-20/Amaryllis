@@ -30,7 +30,7 @@ def D(i, population, x):
     return D
 
 
-def N(i, population, x, lifespan=120):
+def Nc(i, population, x, lifespan=112):
     """
     Nxを実装
     x年から最終年齢までの、Dxの和
@@ -43,7 +43,7 @@ def N(i, population, x, lifespan=120):
         生存人口　
     x: int
         最初の年
-    lifespan: int, default 120
+    lifespan: int, default 112
         最終年齢
 
     Returns
@@ -52,7 +52,7 @@ def N(i, population, x, lifespan=120):
         Nxの計算基数  
     """
 
-    assert (population.shape[0] == lifespan - x) and (len(population.shape) == 1), "生存人口の入力数が異なります"
+    assert (population.shape[0] == lifespan - x + 1) and (len(population.shape) == 1), "生存人口の入力数が異なります"
 
     Dxs = [D(i, p, y) for y, p in zip(range(x, lifespan + 1), population)]
     Dxs = np.array(Dxs)
@@ -87,7 +87,7 @@ def C(i, dead_population, x):
     return C
 
 
-def M(i, dead_population, x, lifespan=120):
+def M(i, dead_population, x, lifespan=112):
     """
     Mの計算基数を計算
     Cxの最終年齢までの和
@@ -101,7 +101,7 @@ def M(i, dead_population, x, lifespan=120):
         size: (lifespan - x, )
     x: int
         最初の年度
-    lifespan: int, default 120
+    lifespan: int, default 112
         最終年齢
 
     Returns
@@ -110,7 +110,7 @@ def M(i, dead_population, x, lifespan=120):
         Mxの計算基数
     """
 
-    assert (dead_population.shape[0] == lifespan - x) and (len(dead_population.shape) == 1), "死亡人口の入力が異なります"
+    assert (dead_population.shape[0] == lifespan - x + 1) and (len(dead_population.shape) == 1), "死亡人口の入力が異なります"
 
     Cxs = [C(i, p, y) for y, p in zip(range(x, lifespan + 1), dead_population)]
     Cxs = np.array(Cxs)
@@ -120,7 +120,7 @@ def M(i, dead_population, x, lifespan=120):
     return M
 
 
-def S(i, population, x, lifespan=120):
+def S(i, population, x, lifespan=112):
     """
     Sxの計算基数を実装
     Mxの最終年齢までの和
@@ -143,7 +143,7 @@ def S(i, population, x, lifespan=120):
         Sxの計算基数
     """
 
-    assert (population.shape[0] == lifespan - x) and (len(population.shape) == 1), "生存人口の入力数が異なります"
+    assert (population.shape[0] == lifespan - x + 1) and (len(population.shape) == 1), "生存人口の入力数が異なります"
 
     S = 0
 
@@ -153,7 +153,7 @@ def S(i, population, x, lifespan=120):
     return S
 
 
-def R(i, dead_population, x, lifespan=120):
+def R(i, dead_population, x, lifespan=112):
     """
     Rの計算基数を実装
     Mxの最終年齢までの和
@@ -175,7 +175,7 @@ def R(i, dead_population, x, lifespan=120):
         Rの計算基数
     """
 
-    assert (dead_population.shape[0] == lifespan - x) and (len(dead_population.shape) == 1), "死亡人口の入力が異なります"
+    assert (dead_population.shape[0] == lifespan - x + 1) and (len(dead_population.shape) == 1), "死亡人口の入力が異なります"
 
     R = 0
     for j in range(0, lifespan - x):
@@ -209,7 +209,7 @@ def C_continuous(i, dead_population, x):
     return C
 
 
-def M_continuous(i, dead_population, x, lifespan=120):
+def M_continuous(i, dead_population, x, lifespan=112):
     """
     M_の計算基数を実装
 
@@ -230,7 +230,7 @@ def M_continuous(i, dead_population, x, lifespan=120):
         M_の計算基数
     """
 
-    assert (dead_population.shape[0] == lifespan - x) and (len(dead_population.shape) == 1), "死亡人口の入力が異なります"
+    assert (dead_population.shape[0] == lifespan - x + 1) and (len(dead_population.shape) == 1), "死亡人口の入力が異なります"
 
     Cxs = [C_continuous(i, p, y) for y, p in zip(
         range(x, lifespan + 1), dead_population)]
