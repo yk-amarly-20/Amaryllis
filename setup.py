@@ -10,7 +10,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 setup(
     name='amaryllis',
     packages=['amaryllis', 'amaryllis.models', 'amaryllis.util', 'amaryllis.survival_rate'], 
-    version='1.0.10',
+    version='1.0.11',
     license='MIT', 
     install_requires=['numpy'], 
     author='yk-amary-20', 
