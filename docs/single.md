@@ -12,7 +12,23 @@ calculate value of single payment term insurance.
 ・ lifespan (int default 112) -- final age  
 
 #### Returns
-・ A (float) -- single payment term insurance.   
+・ A (float) -- single payment term insurance.  
+
+##### sample
+```python
+>>> from amaryllis.models.single import *
+>>> import numpy as np
+>>> population = np.array([100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 0])
+>>> i = 0.03
+>>> x = 0
+>>> n = 3
+>>> f = 1
+>>> lifespan = 10
+>>> A = single_term_insurance(i=i, population=population, x=x, n=n, f=f, lifespan=lifespan)
+>>> print("A = {}".format(A))
+A = 0.2746224616402602
+```
+
 
 
 ## ```single_life_insurance(i=0.03, population=POPULATION, x=30, n=20, f=10, lifespan=112)```  
