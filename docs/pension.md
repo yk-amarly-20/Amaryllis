@@ -92,4 +92,3 @@ calculate value of increasing lifelong annuity.
 
 #### Returns
 ・ a (float) -- decreasing life annuity  
-
