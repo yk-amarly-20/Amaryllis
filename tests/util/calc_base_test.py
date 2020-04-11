@@ -20,7 +20,7 @@ def test_D():
 
 
 def test_N():
-    N(I, POPULATION, X, LIFESPAN)
+    Nc(I, POPULATION, X, LIFESPAN)
 
     return
 
